@@ -31,7 +31,7 @@ public class LevelManager : MonoBehaviour
 
     void Update()
     {
-        Debug.Log(health);
+        // Debug.Log(health);
         if(health >= 10){
             health = 10;
         }
