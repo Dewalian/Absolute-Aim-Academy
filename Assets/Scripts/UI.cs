@@ -11,8 +11,8 @@ public class UI : MonoBehaviour
     [SerializeField] private TMP_Text timerText;
     [SerializeField] private TMP_Text countDownText;
     [SerializeField] private GameObject pausePanel;
-    [SerializeField] private RectTransform winPanel;
-    [SerializeField] private RectTransform losePanel;
+    [SerializeField] private GameObject winPanel;
+    [SerializeField] private GameObject losePanel;
     [SerializeField] private RectTransform blackPanelTop;
     [SerializeField] private RectTransform blackPanelBot;
     private Vector2 blackPanelStart = new Vector2(0, 16);
@@ -36,14 +36,11 @@ public class UI : MonoBehaviour
         }
 
         if(LevelManager.instance.win){
-            winPanel.gameObject.SetActive(true);
-            winPanel.anchoredPosition = Vector2.MoveTowards(winPanel.anchoredPosition, new Vector2(0, 0), GameManager.instance.transitionTime * Time.deltaTime);
+            winPanel.SetActive(true);
         }
 
         if(LevelManager.instance.lose){
-            Debug.Log("Test");
-            losePanel.gameObject.SetActive(true);
-            losePanel.anchoredPosition = Vector2.MoveTowards(losePanel.anchoredPosition, new Vector2(0, 0), 45 * Time.deltaTime);
+            losePanel.SetActive(true);
         }
     }
 

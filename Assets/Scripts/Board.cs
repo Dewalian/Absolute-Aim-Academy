@@ -22,7 +22,7 @@ public class Board : MonoBehaviour
 
     void Update()
     {
-        if(LevelManager.instance.levelStart && !LevelManager.instance.win && !LevelManager.instance.lose){
+        if(LevelManager.instance.levelStart){
             StartCoroutine(SpawnTarget());
         }
     }

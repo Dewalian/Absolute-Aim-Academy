@@ -5,6 +5,9 @@ using UnityEngine;
 public class LevelManager : MonoBehaviour
 {
     public static LevelManager instance = null;
+
+    [SerializeField] private GameObject cam;
+    [SerializeField] private float camSize;
     [SerializeField] private GameObject grid;
     [HideInInspector] public float countDown = 4f;
     [HideInInspector] public bool countDownStart = true;
@@ -31,8 +34,8 @@ public class LevelManager : MonoBehaviour
 
     void Start()
     {
-        GameManager.instance.camState = GameManager.CamState.Mid;
-        GridCenter();
+        CameraCenter();
+        cam.GetComponent<Camera>().orthographicSize = camSize;
     }
 
     void Update()
@@ -55,7 +58,8 @@ public class LevelManager : MonoBehaviour
         }
     }
 
-    void GridCenter(){
+    void CameraCenter(){
+        cam.transform.position = new Vector3(((float)columns / 2) - 0.5f, ((float)rows / 2) - 0.5f, -10);
         grid.transform.position = new Vector3(((float)columns / 2) - 0.5f, ((float)rows / 2) - 0.5f, 0);
     }
 
@@ -68,14 +72,12 @@ public class LevelManager : MonoBehaviour
     }
 
     public void Win(){
-        // Time.timeScale = 0;
+        Time.timeScale = 0;
         win = true;
-        GameManager.instance.camState = GameManager.CamState.Top;
     }
 
     public void Lose(){
-        // Time.timeScale = 0;
+        Time.timeScale = 0;
         lose = true;
-        GameManager.instance.camState = GameManager.CamState.Bot;
     }
 }

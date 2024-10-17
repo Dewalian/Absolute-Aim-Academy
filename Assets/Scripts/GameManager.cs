@@ -6,13 +6,7 @@ using UnityEngine;
 public class GameManager : MonoBehaviour
 {
     public static GameManager instance = null;
-    public float transitionTime = 3f;
-    public enum CamState{
-        Top,
-        Mid,
-        Bot
-    }
-    public CamState camState;
+    [SerializeField] private Texture2D cursor;
 
     void Awake()
     {
