@@ -17,14 +17,14 @@ public class Board : MonoBehaviour
         rows = LevelManager.instance.rows;
         BoardSetup();
 
-        // spawnCD = 1 / LevelManager.instance.targetSpawnRate;
-        spawnCD = 1;
+        spawnCD = 1 / LevelManager.instance.targetSpawnRate;
     }
 
     void Update()
     {
-        StartCoroutine(SpawnTarget());
-        
+        if(LevelManager.instance.levelStart){
+            StartCoroutine(SpawnTarget());
+        }
     }
 
     void BoardSetup(){

@@ -27,9 +27,10 @@ public class MultiTarget : MonoBehaviour
     IEnumerator TargetCountdown(){
         if(startCountdown){
             startCountdown = false;
-            yield return new WaitForSeconds(LevelManager.instance.targetTime + multiNumber);
+            yield return new WaitForSeconds(LevelManager.instance.targetTime + ((float)multiNumber / 3));
             targetTile.targetType = TargetTile.TargetType.Empty;
-            LevelManager.instance.health--;
+            LevelManager.instance.health -= 2;
+            targetTile.animator.SetTrigger("isWrong");
             Destroy(gameObject);
         }
     }

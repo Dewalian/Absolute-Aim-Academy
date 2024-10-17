@@ -41,3 +41,18 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
+  - name: UI
+    uniqueID: 2701773617
+    locked: 0
+  - name: MidGround
+    uniqueID: 2058773627
+    locked: 0
+  - name: ForeGround
+    uniqueID: 1581609059
+    locked: 0
+  - name: Target
+    uniqueID: 3211439251
+    locked: 0
+  - name: Cursor
+    uniqueID: 1726836395
+    locked: 0

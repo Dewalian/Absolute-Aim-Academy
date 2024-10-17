@@ -124,8 +124,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 0724f070246446d4fbb50f273077f764
-      internalID: 34798066
+      spriteID: 5042f36ea45b9844a81d32d142729f7e
+      internalID: -1736854299
       vertices: []
       indices: 
       edges: []
@@ -145,8 +145,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b260375fa2649d843a8d7dfe82258693
-      internalID: 2081099858
+      spriteID: 6609189e6039f2248ab9ecd3c6e3952b
+      internalID: 676080204
       vertices: []
       indices: 
       edges: []
@@ -166,8 +166,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 9b9fa063d8d471c4c99f888dc203e197
-      internalID: 1273573096
+      spriteID: a902aec9b9322c345ac173b436062afe
+      internalID: -652661453
       vertices: []
       indices: 
       edges: []
@@ -187,8 +187,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f1522724d39aa774081e012e7ae091d7
-      internalID: -1650573447
+      spriteID: b0e3858faa2e235479bb25125f50b2a7
+      internalID: 2018189323
       vertices: []
       indices: 
       edges: []
@@ -208,8 +208,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 989c1f003aa99c544a1c466740cc689d
-      internalID: 1266526262
+      spriteID: 3a394225d24b30d4f9575ddfc6e26be4
+      internalID: -171581515
       vertices: []
       indices: 
       edges: []
@@ -229,8 +229,50 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 5f4a63c165e3a2a4d8af37d21b10f9f6
-      internalID: 1770698319
+      spriteID: 2407e88930fc78f439eedf4b914d6e03
+      internalID: -749207161
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Target tile shot-Sheet_6
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 0
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fe2e50e54bf364d4786c57904414103c
+      internalID: -1275891336
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Target tile shot-Sheet_7
+      rect:
+        serializedVersion: 2
+        x: 112
+        y: 0
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1a1e99a6875a78a48a84bed449f6cd6e
+      internalID: -1489614671
       vertices: []
       indices: 
       edges: []
@@ -246,12 +288,14 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Target tile shot-Sheet_0: 34798066
-      Target tile shot-Sheet_1: 2081099858
-      Target tile shot-Sheet_2: 1273573096
-      Target tile shot-Sheet_3: -1650573447
-      Target tile shot-Sheet_4: 1266526262
-      Target tile shot-Sheet_5: 1770698319
+      Target tile shot-Sheet_0: -1736854299
+      Target tile shot-Sheet_1: 676080204
+      Target tile shot-Sheet_2: -652661453
+      Target tile shot-Sheet_3: 2018189323
+      Target tile shot-Sheet_4: -171581515
+      Target tile shot-Sheet_5: -749207161
+      Target tile shot-Sheet_6: -1275891336
+      Target tile shot-Sheet_7: -1489614671
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

@@ -124,8 +124,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d530d1340c01b024c8e4a26fb04ed10c
-      internalID: 1784117534
+      spriteID: a844a61ee24a2fb4c90b5a10579e7fc3
+      internalID: 604123989
       vertices: []
       indices: 
       edges: []
@@ -145,8 +145,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e7e105f243721c2498d4467a382a57a6
-      internalID: 974116420
+      spriteID: 4e432cd4994b3654f9fd055d009df2a5
+      internalID: -1227568834
       vertices: []
       indices: 
       edges: []
@@ -166,8 +166,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e5516e4aeb91a4841b18439601fe8b29
-      internalID: -1601457915
+      spriteID: 42f6d121092713a4ab102059130721c0
+      internalID: -1250123961
       vertices: []
       indices: 
       edges: []
@@ -187,8 +187,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d3882484f66f47a458b331628de75d42
-      internalID: -1938842137
+      spriteID: acbdfef506120544084edab451700e08
+      internalID: 341145063
       vertices: []
       indices: 
       edges: []
@@ -208,8 +208,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 457fc83a8fc895b45afe58b2bd33b5fa
-      internalID: 1153671502
+      spriteID: fa7a079c908b6b14b9a7e0c3e11b2aa0
+      internalID: -968296645
       vertices: []
       indices: 
       edges: []
@@ -229,8 +229,50 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 0f9eac88426d36d47b3c92eb292c367f
-      internalID: -861204475
+      spriteID: 9100254bf15a88640b347a964126e733
+      internalID: -310800594
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Targe tile wrong-Sheet_6
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 0
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 70bd5aeff6b377645bcb39042f1c6916
+      internalID: 988985391
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Targe tile wrong-Sheet_7
+      rect:
+        serializedVersion: 2
+        x: 112
+        y: 0
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6e09cfa5c71fd0144b1cd3aba18d5fcf
+      internalID: -1672457828
       vertices: []
       indices: 
       edges: []
@@ -246,12 +288,14 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Targe tile wrong-Sheet_0: 1784117534
-      Targe tile wrong-Sheet_1: 974116420
-      Targe tile wrong-Sheet_2: -1601457915
-      Targe tile wrong-Sheet_3: -1938842137
-      Targe tile wrong-Sheet_4: 1153671502
-      Targe tile wrong-Sheet_5: -861204475
+      Targe tile wrong-Sheet_0: 604123989
+      Targe tile wrong-Sheet_1: -1227568834
+      Targe tile wrong-Sheet_2: -1250123961
+      Targe tile wrong-Sheet_3: 341145063
+      Targe tile wrong-Sheet_4: -968296645
+      Targe tile wrong-Sheet_5: -310800594
+      Targe tile wrong-Sheet_6: 988985391
+      Targe tile wrong-Sheet_7: -1672457828
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

@@ -23,6 +23,7 @@ public class NormalTarget : MonoBehaviour
             yield return new WaitForSeconds(LevelManager.instance.targetTime);
             targetTile.targetType = TargetTile.TargetType.Empty;
             LevelManager.instance.health--;
+            targetTile.animator.SetTrigger("isWrong");
             Destroy(gameObject);
         }
     }

@@ -7,6 +7,14 @@ public class LevelManager : MonoBehaviour
     public static LevelManager instance = null;
 
     [SerializeField] private GameObject cam;
+    [SerializeField] private float camSize;
+    [SerializeField] private GameObject grid;
+    [HideInInspector] public float countDown = 4f;
+    [HideInInspector] public bool countDownStart = true;
+    [HideInInspector] public bool levelStart = false;
+    [HideInInspector] public float time = 60;
+    [HideInInspector] public bool win = false;
+    [HideInInspector] public bool lose = false;
     public GameObject[] target;
     public float health;
     public float targetSpawnRate;
@@ -27,19 +35,49 @@ public class LevelManager : MonoBehaviour
     void Start()
     {
         CameraCenter();
+        cam.GetComponent<Camera>().orthographicSize = camSize;
     }
 
     void Update()
     {
-        // Debug.Log(health);
+        StartCoroutine(CountDown());
+
+        if(levelStart){
+            time -= Time.deltaTime;
+        }
+
         if(health >= 10){
             health = 10;
+        }else if(health <= 0){
+            health = 0;
+            Lose();
+        }
+
+        if(time <= 0){
+            Win();
         }
     }
 
     void CameraCenter(){
         cam.transform.position = new Vector3(((float)columns / 2) - 0.5f, ((float)rows / 2) - 0.5f, -10);
+        grid.transform.position = new Vector3(((float)columns / 2) - 0.5f, ((float)rows / 2) - 0.5f, 0);
     }
 
+    IEnumerator CountDown(){
+        if(countDownStart){
+            countDownStart = false;
+            yield return new WaitForSeconds(countDown);
+            levelStart = true;
+        }
+    }
 
+    public void Win(){
+        Time.timeScale = 0;
+        win = true;
+    }
+
+    public void Lose(){
+        Time.timeScale = 0;
+        lose = true;
+    }
 }
