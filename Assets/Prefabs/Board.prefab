@@ -44,7 +44,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 07950eb2603115747a94bbba9fed5927, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  columns: 3
-  rows: 3
-  targetTile: {fileID: 0}
-  cam: {fileID: 0}
+  targetTile: {fileID: 8942487042197154066, guid: 9523e3129a35e2844a81c48ad2715a8a, type: 3}

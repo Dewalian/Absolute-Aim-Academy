@@ -56,5 +56,5 @@
         "temp/": true,
         "Temp/": true
     },
-    "dotnet.defaultSolution": "Absolute Aim Academy.sln"
+    "dotnet.defaultSolution": "Absolute-Aim-Academy.sln"
 }

@@ -7,7 +7,6 @@ public class LevelManager : MonoBehaviour
     public static LevelManager instance = null;
 
     [SerializeField] private GameObject cam;
-    [SerializeField] private float camSize;
     [SerializeField] private GameObject grid;
     [HideInInspector] public float countDown = 4f;
     [HideInInspector] public bool countDownStart = true;
@@ -15,8 +14,12 @@ public class LevelManager : MonoBehaviour
     [HideInInspector] public float time = 60;
     [HideInInspector] public bool win = false;
     [HideInInspector] public bool lose = false;
+    [HideInInspector] public Vector2 cShiftPos = new Vector2(4.5f, 0);
+    [HideInInspector] public Quaternion boardQuat;
     public GameObject[] target;
     public float health;
+    public float shiftSpeed;
+    public float rotationSpeed;
     public float targetSpawnRate;
     public float targetTime;
     public int columns;
@@ -35,7 +38,6 @@ public class LevelManager : MonoBehaviour
     void Start()
     {
         CameraCenter();
-        cam.GetComponent<Camera>().orthographicSize = camSize;
     }
 
     void Update()
