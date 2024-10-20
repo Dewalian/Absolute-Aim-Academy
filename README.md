@@ -1,4 +1,4 @@
-# Absolute-Aim-Academy
+# Absolute Aim Academy
 
 ![AAA](https://github.com/user-attachments/assets/26c84e33-cc1b-4fa2-acd6-e67169494b3b)
 
