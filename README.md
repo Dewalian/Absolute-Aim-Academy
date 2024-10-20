@@ -4,7 +4,7 @@
 
 Welcome to the Absolute Aim Academy, where your aim as a gunmen will be tested. Through various challenges, only the chosen with the most perfect aim can pass this academy. Can you?
 
-## About Gmae
+## About Game
 Absolute Aim Academy is an arcade style game where player needs to click various targets. The player given a minute and a maximum of 10 health each level. Each time the player click a target, the player get health. But if the player missclick or let the target dissapear, the player lose health. The player loses if health reaches zero. Survive until the timer ends to get to the next level.
 
 ## Mechanics
