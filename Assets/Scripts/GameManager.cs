@@ -1,7 +1,6 @@
 using System;
 using System.Collections.Generic;
 using System.IO;
-using UnityEditor.U2D.Animation;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -27,7 +26,6 @@ public class GameManager : MonoBehaviour
     public LevelStruct level;
     public float transitionTime;
     public SaveData data;
-    public bool stillMusic0 = false;
 
     void Awake()
     {
@@ -51,22 +49,11 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    void OnEnable()
-    {
-        SceneManager.sceneLoaded += OnSceneLoaded;
-    }
-
-    private void OnSceneLoaded(Scene scene, LoadSceneMode mode){
-        Debug.Log(stillMusic0);
-        if((scene.name == "Main Menu" || scene.buildIndex > levels.Count) && stillMusic0){
-            AudioManager.instance.PlayMusic(0);
-        }
-    }
-
     void Start()
     {
         cursorHotspot = new Vector2(cursor.width / 2, cursor.height / 2);
         Cursor.SetCursor(cursor, cursorHotspot, CursorMode.Auto);
+        AudioManager.instance.PlayMusic(0);
     }
 
 

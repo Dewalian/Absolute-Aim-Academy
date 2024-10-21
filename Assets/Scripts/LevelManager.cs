@@ -41,7 +41,6 @@ public class LevelManager : MonoBehaviour
         CameraCenter();
         AudioManager.instance.StopMusic();
         AudioManager.instance.PlaySFX(3);
-        GameManager.instance.stillMusic0 = true;
     }
 
     void Update()

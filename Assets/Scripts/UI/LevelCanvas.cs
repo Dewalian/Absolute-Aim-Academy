@@ -85,10 +85,10 @@ public class LevelCanvas : MonoBehaviour
 
     void PauseUI(){
         if(pausePanel.activeSelf == true){
-            Time.timeScale = 1;
-            pausePanel.SetActive(false);
+            Resume();
         }else{
             Time.timeScale = 0;
+            AudioManager.instance.musicSource.Pause();
             pausePanel.SetActive(true);
         }
     }
@@ -100,6 +100,7 @@ public class LevelCanvas : MonoBehaviour
 
     public void Resume(){
         Time.timeScale = 1;
+        AudioManager.instance.musicSource.UnPause();
         pausePanel.SetActive(false);
     }
 
@@ -110,6 +111,7 @@ public class LevelCanvas : MonoBehaviour
     public void Exit(){
         GameManager.instance.Save();
         SceneManager.LoadScene(GameManager.instance.currentStage);
+        AudioManager.instance.PlayMusic(0);
     }
     public void NextLevel(){
         GameManager.instance.Save();
