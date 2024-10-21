@@ -6,6 +6,7 @@ using UnityEngine.UIElements;
 public class Board : MonoBehaviour
 {
     [SerializeField] private GameObject targetTile;
+    private GameObject spawnTargetTile;
     private int columns;
     private int rows;
     private Vector2 cShiftPos;
@@ -25,12 +26,12 @@ public class Board : MonoBehaviour
         cShiftPos = LevelManager.instance.cShiftPos;
         shiftSpeed = LevelManager.instance.shiftSpeed;
         rotationSpeed = LevelManager.instance.rotationSpeed;
+
         
         BoardSetup();
 
         spawnCD = 1 / LevelManager.instance.targetSpawnRate;
-
-        boardCenter = new Vector2(columns / 2 - 0.5f, rows / 2 - 0.5f);
+        boardCenter = new Vector2((float)columns / 2 - 0.5f , (float)rows / 2 - 0.5f);
     }
 
     void Update()
@@ -44,7 +45,7 @@ public class Board : MonoBehaviour
             if(rotationSpeed != 0){
                 RotateBoard();
             }
-            
+
             LevelManager.instance.boardQuat = transform.rotation;
         }
     }
@@ -82,18 +83,15 @@ public class Board : MonoBehaviour
     IEnumerator SpawnTarget(){
         if(canSpawn){
             canSpawn = false;
-            GameObject spawnTargetTile = new();
-            TargetTile spawnTargetTileScript = spawnTargetTile.AddComponent<TargetTile>();
 
             for(int i=0; i<rows*columns; i++){
                 spawnTargetTile = targetTiles[Random.Range(0, columns)][Random.Range(0, rows)];
-                spawnTargetTileScript = spawnTargetTile.GetComponent<TargetTile>();
-                if(spawnTargetTileScript.targetType == TargetTile.TargetType.Empty){
+                if(spawnTargetTile.GetComponent<TargetTile>().targetType == TargetTile.TargetType.Empty){
                     break;
                 }
             }
             
-            spawnTargetTileScript.ActivateTile(LevelManager.instance.target[Random.Range(0, LevelManager.instance.target.Length)]);
+            spawnTargetTile.GetComponent<TargetTile>().ActivateTile(LevelManager.instance.target[Random.Range(0, LevelManager.instance.target.Length)]);
 
             yield return new WaitForSeconds(spawnCD);
             canSpawn = true;

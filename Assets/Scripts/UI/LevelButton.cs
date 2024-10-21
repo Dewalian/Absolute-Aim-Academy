@@ -9,5 +9,6 @@ public class LevelButton : MonoBehaviour
 
     public void ChangeScene(){
         SceneManager.LoadScene(scene);
+        Debug.Log("test");
     }
 }

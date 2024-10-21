@@ -6,7 +6,7 @@ public class Loader : MonoBehaviour
 {
     [SerializeField] private GameObject gameManager;
 
-    private void Awake()
+    void Awake()
     {
         if(GameManager.instance == null)
         {

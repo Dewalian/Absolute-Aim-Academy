@@ -53,6 +53,9 @@ TagManager:
   - name: Decorations
     uniqueID: 2931191335
     locked: 0
+  - name: TargetTile
+    uniqueID: 1992383493
+    locked: 0
   - name: Target
     uniqueID: 3211439251
     locked: 0

@@ -1,17 +1,17 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class LevelManager : MonoBehaviour
 {
     public static LevelManager instance = null;
-
     [SerializeField] private GameObject cam;
     [SerializeField] private GameObject grid;
     [HideInInspector] public float countDown = 4f;
     [HideInInspector] public bool countDownStart = true;
     [HideInInspector] public bool levelStart = false;
-    [HideInInspector] public float time = 60;
+    public float time = 3;
     [HideInInspector] public bool win = false;
     [HideInInspector] public bool lose = false;
     [HideInInspector] public Vector2 cShiftPos = new Vector2(4.5f, 0);
@@ -24,6 +24,7 @@ public class LevelManager : MonoBehaviour
     public float targetTime;
     public int columns;
     public int rows;
+    public int score = 0;
 
 
     void Awake()
@@ -57,6 +58,11 @@ public class LevelManager : MonoBehaviour
 
         if(time <= 0){
             Win();
+            if(score > GameManager.instance.level.score){
+                GameManager.instance.level.score = score;
+            }
+            GameManager.instance.level.isCleared = true;
+            GameManager.instance.Save();
         }
     }
 

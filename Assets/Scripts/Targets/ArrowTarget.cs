@@ -4,10 +4,10 @@ using UnityEngine;
 
 public class ArrowTarget : MonoBehaviour
 {
+    [SerializeField] private bool isInverse;
     private TargetTile targetTile;
     private bool startCountdown = true;
     private int randomRotation;
-    private string test;
     public enum ArrowType{
         Up,
         UpRight,
@@ -67,19 +67,21 @@ public class ArrowTarget : MonoBehaviour
 
             }
         }else if(targetTileScript.yPos == 0){
-            test = "bawah";
             randomInt = new int[]{0, 1, 2, 6, 7};
             randomRotation = randomInt[Random.Range(0, randomInt.Length)];
             
         }else if(targetTileScript.yPos == LevelManager.instance.rows - 1){
-            test = "atas";
             randomRotation = Random.Range(2, 7);
         }else{
             randomRotation = Random.Range(0, 8);
         }
 
         arrowType = (ArrowType)randomRotation;
-        transform.rotation = Quaternion.Euler(0, 0, -45 * randomRotation);
+        if(!isInverse){
+            transform.rotation *= Quaternion.Euler(0, 0, -45 * randomRotation);
+        }else{
+            transform.rotation *= Quaternion.Euler(0, 0, -45 * randomRotation + 180);
+        }
     }
 
     IEnumerator TargetCountdown(){

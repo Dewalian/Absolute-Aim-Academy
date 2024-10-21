@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class TargetTile : MonoBehaviour
 {
@@ -52,11 +53,13 @@ public class TargetTile : MonoBehaviour
 
             animator.SetTrigger("isWrong");
             LevelManager.instance.health--;
+            CalcScore(-10);
             
         }else if(targetType == TargetType.Normal){
 
             DeactivateTarget();
             LevelManager.instance.health++;
+            CalcScore(20);
 
         }else if(targetType == TargetType.Multi){
 
@@ -66,11 +69,13 @@ public class TargetTile : MonoBehaviour
                 targetObj.GetComponent<MultiTarget>().multiNumber--;
             }
             LevelManager.instance.health++;
+            CalcScore(25);
 
         }else if(targetType == TargetType.False){
 
             DeactivateTarget();
             LevelManager.instance.health--;
+            CalcScore(-20);
         }
     }
 
@@ -78,6 +83,11 @@ public class TargetTile : MonoBehaviour
         pointingTiles[0].GetComponent<TargetTile>().DeactivateTarget();
         pointingTiles.Remove(pointingTiles[0]);
         LevelManager.instance.health++;
+        CalcScore(30);
+    }
+
+    void CalcScore(int score){
+        LevelManager.instance.score += score;
     }
 
     public void ArrowTile(ArrowTarget.ArrowType arrowType){
@@ -103,7 +113,7 @@ public class TargetTile : MonoBehaviour
 
     public void ActivateTile(GameObject target){
         targetObj = Instantiate(target, transform.position, LevelManager.instance.boardQuat);
-        targetObj.transform.SetParent(gameObject.transform);        
+        targetObj.transform.SetParent(gameObject.transform);
     }
 
     public void DeactivateTarget(){
