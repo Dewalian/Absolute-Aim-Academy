@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.IO;
+using UnityEditor.U2D.Animation;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -11,7 +12,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] private GameObject gunshot;
     [SerializeField] private GameObject cam;
     private Vector2 cursorHotspot;
-    public int currentStage;
+    public string currentStage;
 
     [Serializable]
     public class LevelStruct{
@@ -26,6 +27,7 @@ public class GameManager : MonoBehaviour
     public LevelStruct level;
     public float transitionTime;
     public SaveData data;
+    public bool stillMusic0 = false;
 
     void Awake()
     {
@@ -38,8 +40,7 @@ public class GameManager : MonoBehaviour
         DontDestroyOnLoad(gameObject);
 
         if(!File.Exists(Application.persistentDataPath + "/save" +".save")){
-            Debug.Log("x");
-            currentStage = 0;
+            currentStage = "Stage 1";
             for(int i=0; i<20; i++){
                 levels.Add(new LevelStruct(false, 0));
             }
@@ -50,11 +51,24 @@ public class GameManager : MonoBehaviour
         }
     }
 
+    void OnEnable()
+    {
+        SceneManager.sceneLoaded += OnSceneLoaded;
+    }
+
+    private void OnSceneLoaded(Scene scene, LoadSceneMode mode){
+        Debug.Log(stillMusic0);
+        if((scene.name == "Main Menu" || scene.buildIndex > levels.Count) && stillMusic0){
+            AudioManager.instance.PlayMusic(0);
+        }
+    }
+
     void Start()
     {
         cursorHotspot = new Vector2(cursor.width / 2, cursor.height / 2);
         Cursor.SetCursor(cursor, cursorHotspot, CursorMode.Auto);
     }
+
 
     void Update()
     {
@@ -67,17 +81,18 @@ public class GameManager : MonoBehaviour
         if(Input.GetMouseButtonDown(0) && Time.timeScale != 0){
             Vector3 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
             Instantiate(gunshot, new Vector3(mousePos.x, mousePos.y, 0), Quaternion.identity);
+            AudioManager.instance.PlaySFX(0);
         }
     }
 
     void SetCurrentStage(){
-        if(SceneManager.GetActiveScene().buildIndex > 20){
-            currentStage = SceneManager.GetActiveScene().buildIndex;
+        if(SceneManager.GetActiveScene().buildIndex > levels.Count){
+            currentStage = SceneManager.GetActiveScene().name;
         }
     }
 
     void SetCurrentLevel(){
-        if(SceneManager.GetActiveScene().buildIndex > 0 && SceneManager.GetActiveScene().buildIndex <= 20){
+        if(SceneManager.GetActiveScene().buildIndex > 0 && SceneManager.GetActiveScene().buildIndex <= levels.Count){
             level = levels[SceneManager.GetActiveScene().buildIndex - 1];
         }
     }
@@ -96,9 +111,20 @@ public class GameManager : MonoBehaviour
         levels = data.levels;
     }
 
+    public void NewGame(){
+        currentStage = "Stage 1";
+            for(int i=0; i<20; i++){
+                levels[i].isCleared = false;
+                levels[i].score = 0;
+            }
+
+            Save();
+            Load();
+    }
+
     [Serializable]
     public struct SaveData{
-        public int currentStage;
+        public string currentStage;
         public List<LevelStruct> levels;
     }
 }

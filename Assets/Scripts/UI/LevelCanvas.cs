@@ -100,7 +100,7 @@ public class LevelCanvas : MonoBehaviour
 
     public void Resume(){
         Time.timeScale = 1;
-        gameObject.SetActive(false);
+        pausePanel.SetActive(false);
     }
 
     public void Restart(){
@@ -108,9 +108,11 @@ public class LevelCanvas : MonoBehaviour
     }
 
     public void Exit(){
+        GameManager.instance.Save();
         SceneManager.LoadScene(GameManager.instance.currentStage);
     }
     public void NextLevel(){
+        GameManager.instance.Save();
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
     }
 }

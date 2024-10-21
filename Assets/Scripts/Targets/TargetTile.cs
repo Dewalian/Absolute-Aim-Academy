@@ -26,10 +26,6 @@ public class TargetTile : MonoBehaviour
         xPos = (int)transform.localPosition.x;
         yPos = (int)transform.localPosition.y;
     }
-    void Update()
-    {
-        
-    }
     void OnMouseDown()
     {
         if(Time.timeScale == 0 || !LevelManager.instance.levelStart){
@@ -52,6 +48,7 @@ public class TargetTile : MonoBehaviour
         if(targetType == TargetType.Empty || targetType == TargetType.Arrow){
 
             animator.SetTrigger("isWrong");
+            AudioManager.instance.PlaySFX(2);
             LevelManager.instance.health--;
             CalcScore(-10);
             
@@ -120,9 +117,11 @@ public class TargetTile : MonoBehaviour
         Destroy(targetObj);
         if(targetType == TargetType.False){
             animator.SetTrigger("isWrong");
+            AudioManager.instance.PlaySFX(2);
         }else{
             animator.SetTrigger("isShot");
-        }
+            AudioManager.instance.PlaySFX(1);
         targetType = TargetType.Empty;
+        }
     }
 }

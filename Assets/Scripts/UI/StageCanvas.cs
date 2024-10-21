@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using UnityEngine.SceneManagement;
 
 public class StageCanvas : MonoBehaviour
 {
@@ -21,11 +22,16 @@ public class StageCanvas : MonoBehaviour
         if(GameManager.instance.levels[lastLevel - 1].isCleared && firstLevel != 16){
             nextStageButton.SetActive(true);
         }
+
+        Invoke(nameof(Save), 0.5f);
     }
 
     void Update()
     {
         ShowLevelButton();
+        if(Input.GetKeyDown(KeyCode.Escape)){
+            SceneManager.LoadScene("Main Menu");
+        }
     }
 
     void ShowLevelButton(){
@@ -38,5 +44,13 @@ public class StageCanvas : MonoBehaviour
                 }
             }
         }
+    }
+
+    void Save(){
+        GameManager.instance.Save();
+    }
+
+    public void MainMenu(){
+        SceneManager.LoadScene("Main Menu");
     }
 }

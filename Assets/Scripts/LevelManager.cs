@@ -39,6 +39,9 @@ public class LevelManager : MonoBehaviour
     void Start()
     {
         CameraCenter();
+        AudioManager.instance.StopMusic();
+        AudioManager.instance.PlaySFX(3);
+        GameManager.instance.stillMusic0 = true;
     }
 
     void Update()
@@ -76,6 +79,7 @@ public class LevelManager : MonoBehaviour
             countDownStart = false;
             yield return new WaitForSeconds(countDown);
             levelStart = true;
+            AudioManager.instance.PlayMusic(1);
         }
     }
 

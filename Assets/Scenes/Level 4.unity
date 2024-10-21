@@ -508,6 +508,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gameManager: {fileID: 2469622112286240897, guid: 1aa9010f5e9fee8458a0e2ec9f197a8e, type: 3}
+  audioManager: {fileID: 3985709714490583844, guid: 367fb8112edf56247b84778d8cb763cc, type: 3}
 --- !u!1 &545965573
 GameObject:
   m_ObjectHideFlags: 0
